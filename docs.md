@@ -1,7 +1,3 @@
-# ctf-starter
-A template for deploying challenges to ACM Cyber's CTF platform for Cyber Academy &amp; CTF After Dark.
-
-## Deploying
 Each challenge should correspond to a directory within the `challenges/` directory. Make sure to push both source and compiled Linux executable. Also check that the executable runs on the SEASnet servers.
 
 Regarding `challenge.toml`, follow this [example](https://github.com/uclaacm/cyber-academy-s20/blob/update_main/encompress/challenge.toml). Some things to keep in mind:
