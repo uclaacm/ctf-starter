@@ -128,7 +128,7 @@ fs.readdir(eventsPath, (err, folders) => {
           console.log(`ERROR: In ${folder}: ${key} field is missing`)
         } else {
           // validate type
-          switch (schema[key]) {
+          switch (eventSchema[key]) {
             case "array":
               if (!Array.isArray(data[key])) {
                 status = false;
@@ -136,34 +136,11 @@ fs.readdir(eventsPath, (err, folders) => {
               }
               break;
             default:
-              if (typeof data[key] !== schema[key]) {
+              if (typeof data[key] !== eventSchema[key]) {
                 status = false;
-                console.log(`ERROR: In ${folder}: ${key} field is of the wrong type. It should be type ${schema[key]}`)
+                console.log(`ERROR: In ${folder}: ${key} field is of the wrong type. It should be type ${eventSchema[key]}`)
               }
           }
-        }
-
-        // special validation
-        if (key === 'files' && Array.isArray(data[key])) {
-          data[key].forEach(file => {
-            if ('description' in data && typeof data['description'] === "string") {
-              if (data['description'].search(new RegExp(`\\[.+\\]\\(${file}\\)`)) === -1) {
-                status = false;
-                console.log(`ERROR: In ${folder}: Description is missing link to ${file}`)
-              }
-
-              const matches = data['description'].match(/\[.+\]\(([-a-zA-Z0-9()_.]+)\)/);
-              
-              matches.forEach((val, i) => {
-                if (i % 2 === 1) {
-                  if (!data['files'].includes(val)) {
-                    status = false;
-                    console.log(`ERROR: In ${folder}: ${val} is missing in files`)
-                  }
-                }
-              })
-            }
-          })
         }
       })
     } catch (e) {
