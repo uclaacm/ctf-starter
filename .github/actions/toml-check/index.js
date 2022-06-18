@@ -27,7 +27,7 @@ fs.readdir(challengesPath, (err, folders) => {
 
   let status = true;
   
-  folders.forEach(folder => {
+  folders.filter(folder => folder === "README.md").forEach(folder => {
     console.log('______________________________________________________')
     console.log('CHALLENGE: ' + folder)
 
