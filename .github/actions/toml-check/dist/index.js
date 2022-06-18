@@ -16,7 +16,7 @@ const withGithubWorkspacePath = path => `${process.env.GITHUB_WORKSPACE}/${path}
 
 var schema; 
 try {
-  schema = loadTomlFile(withGithubWorkspacePath(core.getInput('path-to-schema')));
+  schema = loadTomlFile(withGithubWorkspacePath(core.getInput('path-to-schema-challenges')));
 } catch (e) {
   console.log('ERROR: Challenge Schema could not be loaded')
   core.setFailed('Check output for errors')
