@@ -121,7 +121,7 @@ fs.readdir(eventsPath, (err, folders) => {
       const data = loadTomlFile(filepath);
       
       // validate
-      Object.keys(schema).forEach(key => {
+      Object.keys(eventSchema).forEach(key => {
         // validate fields are present
         if (!(key in data)) {
           status = false;
