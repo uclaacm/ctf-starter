@@ -123,7 +123,7 @@ fs.readdir(eventsPath, (err, folders) => {
     console.log('______________________________________________________')
     console.log('EVENT: ' + folder)
 
-    const filepath = `${challengesPath}/${folder}/event.toml`;
+    const filepath = `${eventsPath}/${folder}/event.toml`;
     try {
       const data = loadTomlFile(filepath);
       
