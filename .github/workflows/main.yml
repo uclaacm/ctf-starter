@@ -14,3 +14,4 @@ jobs:
         id: check
         with:
           path-to-schema: ./schema.toml
+          path-to-schema-events: ./events-schema.toml
