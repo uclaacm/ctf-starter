@@ -1,5 +1,5 @@
 # ctf-starter
-A template for deploying challenges to ACM Cyber's [CTF platform](https://github.com/uclaacm/cyber-platform) for Cyber Academy &amp; CTF After Dark.
+A template for deploying challenges to ACM Cyber's [CTF platform](https://github.com/uclaacm/cyber-platform) for Cyber Academy &amp; CTF After Dark. For more information, please see [https://github.com/uclaacm/cyber-platform](https://github.com/uclaacm/cyber-platform).
 
 ## Deploying
 In order to begin deploying this to the ACM Cyber platform, start by updating ```ctf.toml```. Notice the example fields below.
