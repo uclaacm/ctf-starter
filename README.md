@@ -25,6 +25,38 @@ Regarding `challenge.toml`, follow this [example](https://github.com/uclaacm/cyb
 * Your first tag should signify which workshop the challenge comes from. For example, "file" for File Analysis, "packet" for Packet Captures, "memory" for Memory Forensics.
 * `files` should contain relative paths, `description` should link by filename.
 
+### Challenge Creation
+Below contains an example of what the `challenge.toml` file should look like. This is a good starting point for creating your own challenge.
+
+```toml
+# This is a short abbreviation of your challenge name used to help create the URL for your challenge on acmcyber.com.
+slug = "example-challenge"
+
+# This is what your challenge is called.
+title = "Example Challenge" 
+
+# This is you! Put your name here! :)
+author = "Jerry"
+
+# How difficult your challenge is. Challenge points range from 0-100. 
+value = 10
+
+# Your challenge description supporting markdown.
+description = """What is the name of the president of ACM Cyber from 2019-2020? Example of challenge [file](file.txt). Example of [link](https://acmcyber.com)."""
+
+# Short abbreviation to descrbe what category your challenge is in. NOTE: You can only put ONE in the list.
+tags = ["intro"]
+
+# Any files that you reference in your challenge description. Leave an empty array [] if you have none.
+files = ["file.txt"]
+
+# Your prized solution!
+flag = "flag{sanjana_aka_death}"
+
+# Whether your workshop is this week or not.
+enabled = true
+```
+
 ## Events
 Follow the format of the ```events/example/events.toml``` file to create an event!
 
@@ -32,6 +64,32 @@ Follow the format of the ```events/example/events.toml``` file to create an even
 Each event should correspond to a directory within the `events/` directory. Make sure to include an ```icon.svg``` within every event folder!
 
 Regarding `event.toml`, follow this [example](https://github.com/uclaacm/cyber-academy-s22/blob/main/events/boba-run/event.toml).
+
+### Event Creation
+Below contains an example of what the `event.toml` file should look like. This is a good starting point for creating your own event.
+
+```toml
+# This is the unique event ID for your event. This should be a unique number.
+id = 1
+
+# This is the title of your event. ex. 'Cyber Academy: Intro to Web Hacking'
+title = "Example Event"
+
+# This is the short name of your event. This is the abreviated reference on acmcyber.com's Events page. ex. 'Intro Web'
+short = "example"
+
+# This is the date of your event. ex. 'Wednesday 1/1 6:00PM-8:00PM PT'
+date = "Wednesday 1/1 6:00PM-8:00PM PT"
+
+# This is the description of your event. ex. 'Learn the basics of web hacking!'. This supports markdown.
+description = """Description in Markdown here."""
+
+# This is the link to your event's Zoom meeting.
+link = ""
+
+# This is the link to your event's slides.
+slides = ""
+```
 
 ## Credits
 This template is maintained by ACM Cyber at UCLA. Please contact uclacyber@gmail.com for any concerns or simple create an issue on this repository.
