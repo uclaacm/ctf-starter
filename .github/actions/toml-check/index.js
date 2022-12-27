@@ -27,7 +27,7 @@ fs.readdir(challengesPath, (err, folders) => {
 
   let status = true;
   
-  folders.filter(folder => folder !== "README.md").forEach(folder => {
+  folders.forEach(folder => {
     console.log('______________________________________________________')
     console.log('CHALLENGE: ' + folder)
 
@@ -105,21 +105,23 @@ const eventsPath = withGithubWorkspacePath('events/');
 
 fs.readdir(eventsPath, (err, folders) => {
   if (err) {
-    console.log('ERROR: Could not open events/')
-    core.setFailed('Check output for errors')
-    return
+    console.log('ERROR: Could not open events/');
+    core.setFailed('Check output for errors');
+    return;
   }
 
   let status = true;
   
-  folders.filter(folder => folder !== "README.md").forEach(folder => {
+  folders.forEach(folder => {
     console.log('______________________________________________________');
     console.log('EVENT: ' + folder);
 
-    var iconFile = new File(`${eventsPath}/${folder}/icon.svg`);
-    if (!iconFile.exists()) {
+    var iconPath = `${eventsPath}/${folder}/icon.svg`;
+    console.log(!fs.existsSync(iconPath));
+    if (!fs.existsSync(iconPath)) {
+      console.log(`ERROR: In ${folder}: icon.svg is missing`);
       status = false;
-      console.log(`ERROR: In ${folder}: icon.svg is missing`)
+      return;
     }
 
     const filepath = `${eventsPath}/${folder}/event.toml`;
@@ -156,7 +158,7 @@ fs.readdir(eventsPath, (err, folders) => {
   });
 
   if (!status) {
-    core.setFailed('Check output for errors')
+    core.setFailed('Check output for errors');
   }
 })
 
