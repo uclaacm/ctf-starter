@@ -113,8 +113,14 @@ fs.readdir(eventsPath, (err, folders) => {
   let status = true;
   
   folders.filter(folder => folder !== "README.md").forEach(folder => {
-    console.log('______________________________________________________')
-    console.log('EVENT: ' + folder)
+    console.log('______________________________________________________');
+    console.log('EVENT: ' + folder);
+
+    var iconFile = new File(`${eventsPath}/${folder}/icon.svg`);
+    if (!iconFile.exists()) {
+      status = false;
+      console.log(`ERROR: In ${folder}: icon.svg is missing`)
+    }
 
     const filepath = `${eventsPath}/${folder}/event.toml`;
     try {
