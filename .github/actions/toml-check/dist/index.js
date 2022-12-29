@@ -154,6 +154,14 @@ fs.readdir(eventsPath, (err, folders) => {
       console.log(`ERROR: In ${folder} toml file on line ${e.line}, column ${e.column}: ${e.message}`);
       status = false;
     }
+
+    var iconPath = `${eventsPath}/${folder}/icon.svg`;
+    console.log(!fs.existsSync(iconPath));
+    if (!fs.existsSync(iconPath)) {
+      console.log(`ERROR: In ${folder}: icon.svg is missing`);
+      status = false;
+      return;
+    }
   });
 
   if (!status) {
